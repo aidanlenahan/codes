@@ -101,8 +101,8 @@ def get_weekly_code():
 
 def send_email(code):
     # Create the email
-    subject = f"TESTING: Code of Week {datetime.date.today().isocalendar()[1]} - {datetime.date.today().strftime('%B %Y')}"
-    body = f"This email is for testing purposes only. Please disregard.\n\n\n\nHello Family,\n\nThis week's code is: {code}\n\n\nDISCLAIMERS:\nThis is an automated email sent every Monday at 6:20AM (EST). The sender address, f3fff0@gmail.com, is a noreply.\n The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender."
+    subject = f"Code of Week {datetime.date.today().isocalendar()[1]} - {datetime.date.today().strftime('%B %Y')}"
+    body = f"Hello Family,\n\nThis week's code is: {code}\n\n\nDISCLAIMERS:\n\nThis is an automated email sent every Monday at 6:20AM (EST). The sender address, f3fff0@gmail.com, is a noreply.\n\nThe content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender."
     msg = MIMEMultipart()
     msg['From'] = EMAIL_ADDRESS
     msg['To'] = ", ".join([email for email in family_emails if email])  # Combine all recipients
