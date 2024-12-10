@@ -54,6 +54,7 @@ def send_email(code):
     body = f"Hello Family,\n\nThis week's code is: {code}\n\nStay safe!"
     msg = MIMEMultipart()
     msg['From'] = EMAIL_ADDRESS
+    msg['To'] = ", ".join([email for email in family_emails if email])  # Combine all recipients
     msg['Subject'] = subject
     msg.attach(MIMEText(body, 'plain'))
 
@@ -62,10 +63,7 @@ def send_email(code):
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()  # Secure the connection
             server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            for recipient in family_emails:
-                if recipient:  # Only send to valid emails
-                    msg['To'] = recipient
-                    server.sendmail(EMAIL_ADDRESS, recipient, msg.as_string())
+            server.sendmail(EMAIL_ADDRESS, family_emails, msg.as_string())  # Send to all recipients
         print("Emails sent successfully!")
     except Exception as e:
         print(f"Error sending email: {e}")
