@@ -1,7 +1,6 @@
 # codes
 
 This repo generates random codes and automates the weekly sending process of these codes via email. These codes provide weekly safe words between my family and I to prevent the increasing amount of AI spam emails, vishing, and other forsm of scamming.
----
 
 ## Table of Contents
 - [Features](#features)
