@@ -37,4 +37,5 @@ jobs:
           FAMILY_EMAIL_1: ${{ secrets.FAMILY_EMAIL_1 }}
           FAMILY_EMAIL_2: ${{ secrets.FAMILY_EMAIL_2 }}
           FAMILY_EMAIL_3: ${{ secrets.FAMILY_EMAIL_3 }}
-        run: python send_weekly_code.py
+          FAMILY_EMAIL_4: ${{ secrets.FAMILY_EMAIL_4 }}
+        run: python generate.py
