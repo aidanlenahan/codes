@@ -19,7 +19,9 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")  # Password or app password
 FAMILY_EMAIL_1 = os.getenv("FAMILY_EMAIL_1")
 FAMILY_EMAIL_2 = os.getenv("FAMILY_EMAIL_2")
 FAMILY_EMAIL_3 = os.getenv("FAMILY_EMAIL_3")
-family_emails = [FAMILY_EMAIL_1, FAMILY_EMAIL_2, FAMILY_EMAIL_3]
+FAMILY_EMAIL_4 = os.getenv("FAMILY_EMAIL_4")
+
+family_emails = [FAMILY_EMAIL_1, FAMILY_EMAIL_2, FAMILY_EMAIL_3, FAMILY_EMAIL_4]
 
 # List of words/phrases
 words = [
@@ -48,8 +50,8 @@ def get_weekly_code():
 
 def send_email(code):
     # Create the email
-    subject = "This Week's Verbal Code"
-    body = f"Hello Family,\n\nThis week's verbal code is: {code}\n\nStay safe!"
+    subject = f"Code of Week {datetime.date.today().isocalendar()[1]} - {datetime.date.today().strftime('%B %Y')}"
+    body = f"Hello Family,\n\nThis week's code is: {code}\n\nStay safe!"
     msg = MIMEMultipart()
     msg['From'] = EMAIL_ADDRESS
     msg['Subject'] = subject
