@@ -4,6 +4,7 @@ on:
   schedule:
     # Run every Monday at 6:20 AM UTC
     - cron: '20 6 * * 1'
+    workflow_dispatch:
 
 jobs:
   send-email:
