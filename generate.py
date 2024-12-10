@@ -14,6 +14,7 @@ SMTP_SERVER = os.getenv("SMTP_SERVER")  # SMTP server address
 SMTP_PORT = int(os.getenv("SMTP_PORT", 587))  # SMTP server port (default 587 for TLS)
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")  # Email address for sending
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")  # Password or app password
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")  # This will pull from the GitHub secret you just added
 
 # Family email addresses from environment variables
 FAMILY_EMAIL_1 = os.getenv("FAMILY_EMAIL_1")
