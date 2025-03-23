@@ -1,0 +1,13 @@
+name: Keep Repo Active
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'  # Runs on the 1st day of every month at 00:00 UTC
+  workflow_dispatch:      # Allows you to run it manually too
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keep the repo alive
+        run: echo "Keeping the repo warm ☕"
