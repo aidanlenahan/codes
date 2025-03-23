@@ -1,20 +1,20 @@
 # 🕊️ Weekly Verbal Code Email Bot
 
-This project automatically generates a **weekly verbal code** (a random word or phrase) and sends it to a list of recipients via email — perfect for families, small teams, or secret societies 🕵️‍♂️. The code changes every week, is simple and verbal-friendly, and is sent out using GitHub Actions.
+This project automatically generates a **weekly verbal code** (a random word or phrase) and sends it to a list of recipients via email. The code changes every week, is simple and verbal-friendly, and is sent out using GitHub Actions.
 
 ---
 
-## ✨ Features
+## Features
 
-- ✅ Auto-generates a verbal code each week
-- ✅ Sends email via secure SMTP
-- ✅ Hosted and automated using GitHub Actions
-- ✅ Easily configurable via GitHub Secrets
-- ✅ Includes a keep-alive workflow to prevent GitHub from suspending scheduled runs
+- Auto-generates a verbal code each week
+- Sends email via secure SMTP
+- Hosted and automated using GitHub Actions
+- Easily configurable via GitHub Secrets
+- Includes a keep-alive workflow to prevent GitHub from suspending scheduled runs
 
 ---
 
-## 🛠️ How It Works
+## How It Works
 
 - A Python script (`generate.py`) runs every Monday at 6:20 AM Eastern Time.
 - It generates a word or phrase based on the week number (deterministic but feels random).
@@ -24,7 +24,7 @@ This project automatically generates a **weekly verbal code** (a random word or 
 
 ---
 
-## 🚀 Setup Instructions
+## Setup Instructions
 
 ### 1. **Clone or Fork This Repository**
 
@@ -43,16 +43,17 @@ Go to your repository → **Settings** → **Secrets and Variables** → **Actio
 |--------------------|-------------------------------------|---------------------------------------------|
 | `SMTP_SERVER`      | `smtp.gmail.com` or `mx.sdf.org`    | Your email provider’s SMTP server           |
 | `SMTP_PORT`        | `587`                               | Usually 587 (STARTTLS)                      |
-| `EMAIL_ADDRESS`    | `yourname@gmail.com` or `yourdomain@sdf.org` | Email to send from               |
-| `EMAIL_PASSWORD`   | Your SMTP password or app password  | App-specific password for Gmail or SDF      |
+| `EMAIL_ADDRESS`    | `yourname@gmail.com` | Email to send from               |
+| `EMAIL_PASSWORD`   | Your SMTP password or app password  | App-specific password for email client      |
 | `FAMILY_EMAIL_1`   | `someone@example.com`               | Recipient 1                                 |
 | `FAMILY_EMAIL_2`   | `someone2@example.com`              | Recipient 2                                 |
 | `FAMILY_EMAIL_3`   | (optional)                          | Recipient 3                                 |
 | `FAMILY_EMAIL_4`   | (optional)                          | Recipient 4                                 |
 
+> More recipients can be added. Make sure you add additional variables to the yml and python files and add the corresponding emails in Github Secrets.
+> ⚠️**DO NOT STORE EMAILS OR PASSWORDS IN YML PLAINTEXT. USE [GITHUB SECRETS](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) TO STORE.
 > ⚠️ If you're using Gmail:  
 > You **must** [enable App Passwords](https://support.google.com/accounts/answer/185833) (2FA required).  
-> If you're using SDF, use `mkvpm set secret SMTP_AUTH=yourpassword` and your email will be `yourdomain@sdf.org`.
 
 ---
 
@@ -60,18 +61,18 @@ Go to your repository → **Settings** → **Secrets and Variables** → **Actio
 
 There are **two workflows**:
 
-#### 📬 `weekly_email.yml`
+#### `weekly_email.yml`
 
 - Runs every Monday at 6:20 AM Eastern (adjusted in UTC)
 - Calls `generate.py` to send the weekly verbal code
 - Trigger: `schedule` + optional manual trigger
 
-#### 🛡️ `keepalive.yml`
+#### `keepalive.yml`
 
-- Runs on the 1st of each month to prevent GitHub from suspending the repo due to inactivity
+- Runs on the 1st of each month to prevent GitHub from suspending the repo due to inactivity (after 60 days)
 - Optional manual trigger via UI
 
-✅ Both are located in `.github/workflows/`.
+Both are located in `.github/workflows/`.
 
 ---
 
@@ -100,6 +101,7 @@ README.md                   # You're reading it!
 ### 🛑 Workflow isn't running?
 - GitHub pauses scheduled workflows in **private repos** after 60 days of inactivity.  
 - Solution: use `keepalive.yml` OR run a manual dispatch occasionally.
+- Make sure sender email and details are defined correctly (SMTP server, port, etc.)
 
 ### 🔐 Authentication issues?
 - Gmail: Use an [App Password](https://support.google.com/accounts/answer/185833) with 2FA enabled.
@@ -107,7 +109,7 @@ README.md                   # You're reading it!
 
 ### 📤 Multiple `To:` Headers error?
 This happens if you're setting `msg['To']` inside a loop.  
-✅ Fixed in `generate.py` using `", ".join()`.
+Fixed in `generate.py` using `", ".join()`.
 
 ---
 
@@ -129,15 +131,7 @@ Stay safe!
 
 ---
 
-## 🙌 Credits
+## Credits
 
-Built with Python, SMTP, GitHub Actions, and caffeine ☕  
-Inspired by families who like secret codes and staying connected 💌
-
----
-
-## 📬 License
-
-MIT — Use it, fork it, improve it, share it.
-
+Built with Python, SMTP, GitHub Actions and ChatGPT
 ---
