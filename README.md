@@ -96,14 +96,14 @@ README.md                   # You're reading it!
 
 ---
 
-## 💡 Troubleshooting
+## Troubleshooting
 
-### 🛑 Workflow isn't running?
+### Workflow isn't running?
 - GitHub pauses scheduled workflows in **private repos** after 60 days of inactivity.  
 - Solution: use `keepalive.yml` OR run a manual dispatch occasionally.
 - Make sure sender email and details are defined correctly (SMTP server, port, etc.)
 
-### 🔐 Authentication issues?
+### Authentication issues?
 - Gmail: Use an [App Password](https://support.google.com/accounts/answer/185833) with 2FA enabled.
 - SDF: Use `mkvpm set secret SMTP_AUTH=yourpassword` and set `EMAIL_PASSWORD` to that value.
 
@@ -113,7 +113,7 @@ Fixed in `generate.py` using `", ".join()`.
 
 ---
 
-## 🧙 Example Output
+## Example Output
 
 Subject:  
 ```
