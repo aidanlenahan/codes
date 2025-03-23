@@ -1,4 +1,4 @@
-# 🕊️ Weekly Verbal Code Email Bot
+# Weekly Verbal Code Email Bot
 
 This project automatically generates a **weekly verbal code** (a random word or phrase) and sends it to a list of recipients via email. The code changes every week, is simple and verbal-friendly, and is sent out using GitHub Actions.
 
@@ -51,7 +51,7 @@ Go to your repository → **Settings** → **Secrets and Variables** → **Actio
 | `FAMILY_EMAIL_4`   | (optional)                          | Recipient 4                                 |
 
 > More recipients can be added. Make sure you add additional variables to the yml and python files and add the corresponding emails in Github Secrets.
-> ⚠️**DO NOT STORE EMAILS OR PASSWORDS IN YML PLAINTEXT. USE [GITHUB SECRETS](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) TO STORE.
+> ⚠️⚠️**DO NOT STORE EMAILS OR PASSWORDS IN YML PLAINTEXT. USE [GITHUB SECRETS](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions) TO STORE.**⚠️⚠️
 > ⚠️ If you're using Gmail:  
 > You **must** [enable App Passwords](https://support.google.com/accounts/answer/185833) (2FA required).  
 
